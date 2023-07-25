@@ -1,5 +1,5 @@
 # Use Debian Buster base image
-FROM debian:10 as build
+FROM debian:bookworm-slim as build
 
 # Install prerequisites
 # http://wiki.synchro.net/install:nix:prerequisites
@@ -26,7 +26,7 @@ RUN set -eux; \
   rm -rf /var/lib/apt/lists/*;
 
 # Create base directory, pull Makefile, compile source code
-ARG SBBS_GITTAG=sbbs318b
+ARG SBBS_GITTAG=sbbs319b
 ARG SBBSDIR=/sbbs
 ARG SBBS_SYMLINK=1
 RUN set -eux; \
@@ -41,7 +41,7 @@ RUN bats /tests
 #
 # Final image
 #
-FROM debian:10
+FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV SBBSDIR=/sbbs
