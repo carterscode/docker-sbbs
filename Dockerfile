@@ -41,7 +41,7 @@ RUN bats /tests
 #
 # Final image
 #
-FROM debian:10 as build
+FROM debian:10
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV SBBSDIR=/sbbs
