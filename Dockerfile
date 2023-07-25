@@ -1,5 +1,5 @@
 # Use Debian Buster base image
-FROM debian:bookworm-slim as build
+FROM debian:10 as build
 
 # Install prerequisites
 # http://wiki.synchro.net/install:nix:prerequisites
@@ -41,7 +41,7 @@ RUN bats /tests
 #
 # Final image
 #
-FROM debian:bookworm-slim
+FROM debian:10 as build
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV SBBSDIR=/sbbs
